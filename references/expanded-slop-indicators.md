@@ -4,6 +4,24 @@ This is a **secondary catalog** assembled from independent design research, not 
 
 Note on coverage: the task brief labels this list "35 tells" but the exact ordered list it supplies contains 43 semicolon-separated items (typography 8, color and surface 12, layout 12, components and copy 11). Every supplied item is documented below, in the supplied order, and no unlisted tell has been added.
 
+## Sources
+
+Primary sources used for the prose of these entries:
+
+- Paralect, "Signs of AI slop in design: 21 patterns that make your site look AI-generated" — https://paralect.com/blog/signs-of-ai-slop-in-design
+- unslop-ui, `TELLS.md` — https://github.com/claudiusararu/unslop-ui-skill/blob/main/TELLS.md
+- `signs-of-ai-design` field guide — https://github.com/febbhav/signs-of-ai-design
+- `signs-of-ai-design` sources — `febbhav/signs-of-ai-design/SOURCES.md` in the same repository (read with `gh api repos/febbhav/signs-of-ai-design/contents/SOURCES.md --jq .content | base64 -d`)
+- 925studios, "AI Slop Fonts and Gradients: The Tells That Give Away AI Design" — https://www.925studios.co/blog/ai-slop-design-tells
+- Carlo D'Agnolo, "30 AI Design Slop Indicators" — https://carlodagnolo.com/resources/posts/ai-design-tells
+
+Corroborating reading (search results; no new tells were taken from these):
+
+- `JCarterJohnson/vibecoded-design-tells`, `skill/references/tells.md` — https://github.com/JCarterJohnson/vibecoded-design-tells/blob/main/skill/references/tells.md
+- `funboy322/avoid-ai-design` — https://github.com/funboy322/avoid-ai-design
+- design.how, "AI slop UI" — https://design.how/ai-slop-ui
+- developersdigest, "AI Design Slop: 16 Patterns That Mark a Site as Vibe-Coded" — https://www.developersdigest.tech/blog/ai-design-slop-and-how-to-spot-it
+
 ## Contents
 
 Typography: 1. [Inter/Geist default stack](#1-intergeist-default-stack) · 2. [Trending font trio](#2-trending-font-trio) · 3. [600 as heaviest weight](#3-600-as-heaviest-weight) · 4. [tracking-tight on every heading](#4-tracking-tight-on-every-heading) · 5. [Gradient-clipped heading text](#5-gradient-clipped-heading-text) · 6. [Monospace for non-code chrome](#6-monospace-for-non-code-chrome) · 7. [Narrow paragraph column with 16px leading-7 everywhere](#7-narrow-paragraph-column-with-16px-leading-7-everywhere) · 8. [Overlong headline with one-word orphan](#8-overlong-headline-with-one-word-orphan)
@@ -94,7 +112,7 @@ Components and copy: 33. [shadcn Card for every content type](#33-shadcn-card-fo
 
 **How to spot:** An `h1` that wraps so the final word or short phrase sits alone on its own line; often combined with a deliberate `<br>` or a forced narrow heading width.
 
-**Why it reads as generated:** The orphan is a side effect of optimizing the headline for a screenshot rather than for reading at multiple widths. Paralect's field-guide patterns repeatedly flag lines that are shaped for the composition, not the sentence.
+**Why it reads as generated:** The orphan is a side effect of optimizing the headline for a screenshot rather than for reading at multiple widths. The signs-of-ai-design field guide's patterns repeatedly flag lines that are shaped for the composition, not the sentence.
 
 **Replacement action:** Rewrite the headline so it breaks naturally: shorten it, change the word order, or widen the heading container. Check the result at tablet and phone widths too.
 
