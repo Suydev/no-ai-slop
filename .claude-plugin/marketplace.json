@@ -4,14 +4,14 @@
     "name": "Suydev"
   },
   "metadata": {
-    "description": "Scored audit and rewrite guidance for AI design slop, with a stdlib textual scanner"
+    "description": "Scored audit and rewrite guidance for AI design slop, plus researched hero patterns, component recipes, and 3D scroll decisions"
   },
   "plugins": [
     {
       "name": "no-ai-slop",
       "source": "./",
-      "version": "1.0.0",
-      "description": "Audit and rewrite UI work so it does not read as generic AI-generated slop. Scores 20 design tells and gives concrete replacements.",
+      "version": "1.1.0",
+      "description": "Audit and rewrite UI work so it does not read as generic AI-generated slop, then give researched direction for distinctive pages, components, and 3D scroll.",
       "author": {
         "name": "Suydev"
       },

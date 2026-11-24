@@ -21,6 +21,13 @@
       "prompt": "Our dashboard hero has a cream background, three icon cards in a row, and a '10x faster' stat line. Make it look less AI-generated — rewrite the hero and show me what changed.",
       "expected_output": "An audit of the described tells plus a rewritten hero with structural changes (asymmetric layout or single feature, sourced/removed stats, revised copy) and a re-score showing the improvement.",
       "files": []
+    },
+    {
+      "id": 4,
+      "name": "positive-direction-and-3d-decision",
+      "prompt": "Make my text-first B2B docs landing page astonishing — I want a premium 3D scroll hero like the award winners. What should I build instead?",
+      "expected_output": "Loads references/impressive-ui-patterns.md, gives a Direction block naming hero pattern, proof artifact, component composition and motion tier, explains why scroll-driven 3D is the wrong tier for text-first content, proposes the cheaper CSS/Lottie or static-artifact alternative with reduced-motion and DOM copy, and offers to re-audit after any rewrite.",
+      "files": []
     }
   ]
 }

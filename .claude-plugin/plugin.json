@@ -1,7 +1,7 @@
 {
   "name": "no-ai-slop",
-  "version": "1.0.0",
-  "description": "Audit and rewrite UI work so it does not read as generic AI-generated slop. Scores 20 design tells and gives concrete replacements.",
+  "version": "1.1.0",
+  "description": "Audit and rewrite UI work so it does not read as generic AI-generated slop, then give researched direction for distinctive pages, components, and 3D scroll.",
   "author": {
     "name": "Suydev"
   },

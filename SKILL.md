@@ -1,6 +1,6 @@
 ---
 name: no-ai-slop
-description: Audit and rewrite UI and design work so it does not read as generic AI-generated slop. Use this whenever you are about to write, review, or ship HTML, CSS, React/JSX, Vue, Tailwind, a landing page, a marketing site, a dashboard, or any screen design. Also use when the user says "AI slop", "make it not look AI-generated", "does this look generic?", "design taste check", "review the visuals", or asks for a second pass on visual quality. Use proactively before presenting any UI code to a user, even if they did not explicitly request a review — it is much cheaper to catch these tells before shipping than after.
+description: Audit and rewrite UI and design work so it does not read as generic AI-generated slop, then give a concrete positive direction for making it distinctive. Use this whenever you are about to write, review, or ship HTML, CSS, React/JSX, Vue, Tailwind, a landing page, a marketing site, a dashboard, or any screen design. Also use when the user says "AI slop", "make it not look AI-generated", "does this look generic?", "design taste check", "review the visuals", "make it impressive", "premium landing page", "3D scroll site", or asks for a second pass on visual quality. Use proactively before presenting any UI code to a user, even if they did not explicitly request a review — it is much cheaper to catch these tells before shipping than after.
 argument-hint: "<file-or-code> [--rewrite]"
 allowed-tools: Read, Grep, Glob, Bash, Edit, Write
 license: MIT
@@ -8,15 +8,15 @@ license: MIT
 
 # No AI Slop
 
-A design taste check. It catches the visual, typographic, and copywriting habits that make generated interfaces look machine-made, then shows how to replace them with deliberate choices.
+A design taste check with two halves: it catches the habits that make generated interfaces look machine-made, then gives researched direction for what to build instead.
 
-The point is not to ban any single pattern forever. The point is that these patterns are the *statistical defaults* of generative models: they appear because they are safe and common, not because they fit the product. An interface that reads as "AI slop" signals low intent. This skill turns a vague sense of "this looks generic" into a concrete, scoreable audit with specific fixes.
+These patterns are statistical defaults, not banned APIs. This skill turns "this looks generic" into a scored audit with located fixes and a named replacement — a page can score 100/100 and still be boring.
 
 Source list: Charles Liu, "20 More AI Design Slop Indicators" (https://youtube.com/shorts/E7JrEO7L5rQ).
 
 ## Contract for long sessions
 
-Confirm every scanner hit before counting it. Score only from confirmed findings. Reload `references/slop-indicators.md` rather than recalling it. State when no render was available.
+Confirm every scanner hit before counting it. Score only from confirmed findings. Reload `references/slop-indicators.md` rather than recalling it. Before any rewrite, reload `references/impressive-ui-patterns.md` and `references/rewrite-playbook.md` and name the replacement pattern; "looks better" is not a direction. State when no render was available.
 
 ## When to use
 
@@ -36,7 +36,8 @@ Skip the audit for pure backend work, plain terminal output, data files, or non-
    The script is a triage aid, not a verdict. Regex hits are candidates; a cream hex can be the right brand color, and `grid-cols-3` can be justified. Confirm each hit against context, then **walk all 20 indicators manually** — the scanner misses tells expressed through custom class names (`.pill`, `border-radius:999px`) or loose spacing between related declarations. Never treat the script's score as the final score.
 3. **Inspect the rendered design** when you have a screenshot, browser, or running preview. Several tells (blurry glows, fade-on-scroll, over-use of eyebrows/pills, three identical cards) are visual and will not appear in source scanning. If no browser or preview is reachable, say so explicitly and score from source only; note in the report that visual-only tells may have been missed. Do not repeatedly retry a browser connection that was refused.
 4. **Score and report** using the format below. Before counting any candidate, confirm it against source or screenshot: a regex hit is a candidate, not a finding. Cite the exact line or screenshot region for every finding.
-5. **Rewrite only when asked.** If the user wants a fix, apply the rewrite playbook and re-score to show the delta.
+5. **Name the positive direction** before changing code. Reload both positive references, then write: product truth in one sentence, hero pattern matched to the visitor, proof artifact, component composition, cheapest motion tier, and budget checks. A rewrite without these choices is redecoration.
+6. **Rewrite only when asked.** Apply the chosen direction, then re-score to show the delta. Run the audit again on the result: impressive additions can reintroduce slop.
 
 ## Scoring
 
@@ -62,7 +63,7 @@ A low score is not a moral judgment. It is a prediction of how a discerning view
 
 Full per-indicator rules — what to look for, why it reads as slop, and the concrete replacement — live in `references/slop-indicators.md`. Read that file whenever you are scoring or rewriting; the one-line names in the scoring table are not enough to apply the rules consistently. In a long session, re-read it instead of relying on recall; it is the authoritative anchor, and it is grep-able. For the independent-research tells, see `references/expanded-slop-indicators.md`; they are secondary, worth 2 each when confirmed, and read as a cluster rather than as standalone verdicts.
 
-For positive direction (layout archetypes, typography pairing, copy patterns that signal intent), read `references/rewrite-playbook.md`.
+For positive direction — layout archetypes, typography pairing, copy patterns — read `references/rewrite-playbook.md`. For researched page patterns, component recipes, premade block sources, and 3D/scroll decisions, read `references/impressive-ui-patterns.md`.
 
 ## Output format
 
@@ -89,6 +90,8 @@ Rules for the table:
 
 When the user asks for a rewrite, follow the audit with the rewritten code or a precise diff, then a one-line re-score: `After rewrite: <N>/100 (+<delta>)`. Do not rewrite unprompted.
 
+Every rewrite starts with a 2-4 line **Direction** block: hero pattern, proof artifact, component composition, motion tier, and one sentence on why they fit this product. Cite `references/impressive-ui-patterns.md` so the choice is auditable.
+
 ## Rewriting principles
 
 Work from structure outward. The highest-leverage changes are almost always structural (cards, grids, section rhythm), not cosmetic (swapping a font). Specifically:
@@ -97,6 +100,9 @@ Work from structure outward. The highest-leverage changes are almost always stru
 - Make one deliberate choice where the default would be symmetric. Three equal cards, centered text, and evenly spaced sections are the shape of a template.
 - Replace claims with specifics: a real number with a source beats "made up stats"; a concrete verb beats "real" or "quiet".
 - Use motion only to explain state or cause. Decorative fade-in-on-scroll and pulsing status lights with no live data are noise.
+- Match the hero to product truth and visitor temperature; an Apple product-shot hero on an invisible API is a lie.
+- Choose blocks by job, restyle them with the product's tokens, delete unused variants and placeholders.
+- Pick the cheapest motion tier that carries the idea. If you use 3D, name what it communicates, build the reduced-motion frame first, keep copy in the DOM.
 - Keep the product's own voice. Removing slop should make the design more specific to *this* product, not more generic in a different direction.
 
 ## Limitations
@@ -110,4 +116,5 @@ Work from structure outward. The highest-leverage changes are almost always stru
 
 - `references/slop-indicators.md` — the 20 indicators with detection rules, rationale, and replacements.
 - `references/rewrite-playbook.md` — positive patterns for layout, type, copy, and motion.
+- `references/impressive-ui-patterns.md` — researched hero patterns, component recipes, premade block sources, and 3D/scroll patterns with fit, cost, and accessibility rules.
 - `scripts/scan_slop.py` — stdlib-only textual scan; prints a table, JSON with `--json`, and exits 0 so findings never break a build.

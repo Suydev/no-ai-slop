@@ -1,6 +1,19 @@
 # Rewrite playbook
 
-Removing tells is only half the job. A design that merely avoids slop can still be bland. This file gives positive direction: how to make the replacement *specific* to the product.
+Removing tells is only half the job. A design that merely avoids slop can still be bland. This file gives positive direction: how to make the replacement *specific* to the product. For researched page archetypes, premade component sources, and 3D/scroll patterns, read `impressive-ui-patterns.md` as well. Both are decision aids, not mood boards: pick the pattern that fits the product truth, then delete everything the content does not need.
+
+## Contents
+
+- Start with the structure
+- Typography that signals intent
+- Copy that carries information
+- Color and surface
+- Motion
+- Researched defaults for 2026
+- Choosing a component instead of inventing one
+- Motion and 3D tiers
+- A worked before/after
+- When the user wants the aesthetic anyway
 
 ## Start with the structure
 
@@ -52,6 +65,27 @@ Vary sentence length. Keep a short line only where the brevity is itself the poi
 - Keep micro-interactions under 200ms and tie them to the user's action, not to scroll position.
 - Respect `prefers-reduced-motion`.
 - A pulsing indicator must be bound to real live data. Static "live" badges are the visual equivalent of a made-up stat.
+
+## Researched defaults for 2026
+
+These are starting points from the sources in `impressive-ui-patterns.md`, not laws. Override them when the product's own voice demands it — but know what you are overriding.
+
+- **Hero headline:** one sentence that answers "what is this, and who is it for"; 72–96px on desktop with a real jump to body size. If the visitor cannot repeat the claim after one reading, rewrite it.
+- **Body copy:** 18–22px, generous line height, line length under roughly 70 characters. One variable-font subset beats four families.
+- **Accent:** one accent color used three or four times on the page. If it appears ten times it stops meaning "act here".
+- **Proof hierarchy:** one named customer result, then two short supporting quotes, then a logo strip if at all. Logo marquees are the dessert, not the main course.
+- **CTA:** one primary action, two or three words, high contrast under a five-second squint test. Secondary actions are text links, not competing buttons.
+- **Form:** one to three fields on first contact. Everything else happens inside the product.
+- **First paint:** under a second on mid-tier mobile. One primary script, no third-party tracking in the critical path, no hero video blocking the headline.
+- **Reduced motion:** a complete static frame, designed first, not a broken version of the animated one.
+
+## Choosing a component instead of inventing one
+
+Blocks from shadcn registries and animation libraries are legitimate raw material. Choose by job (proof, feature visual, pricing, hero), take **one** block rather than a bundle, restyle it with the product's tokens, check the published gzipped size and dependency count, delete unused variants, and replace every placeholder metric and avatar with a real artifact. Then re-run the audit. A premium block does not survive because it is premium; it survives because the content needed it.
+
+## Motion and 3D tiers
+
+Motion explains state or cause. If it does not, it costs frame budget for nothing. Pick the cheapest tier that communicates the idea: CSS transforms → Lottie or SVG → a single Three.js reveal → one pinned Three.js scrub section → custom shaders. Reserve pinning for one moment that earns it. Keep scene state a pure function of normalized scroll progress, render from one animation frame loop, pause offscreen, cap pixel ratio, keep copy in the DOM, and ship the reduced-motion frame first. A text-first product with a 3D hero is slop wearing a better costume.
 
 ## A worked before/after
 
