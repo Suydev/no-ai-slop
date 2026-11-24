@@ -1,8 +1,10 @@
 # no-ai-slop
 
+![No AI Slop mark](assets/no-ai-slop-logo.svg)
+
 A Claude Code skill that catches the visual tells of generic AI-generated design — and tells you exactly how to replace them.
 
-Born from Charles Liu's 26-second video ["20 More AI Design Slop Indicators"](https://youtube.com/shorts/E7JrEO7L5rQ). It turns "this looks generic" into a scored, evidence-backed audit with concrete fixes. It is a taste check, not style police: deliberate choices are allowed, and every finding explains *why* it reads as generated.
+Written and maintained with Claude Code. Born from Charles Liu's 26-second video ["20 More AI Design Slop Indicators"](https://youtube.com/shorts/E7JrEO7L5rQ). It turns "this looks generic" into a scored, evidence-backed audit with concrete fixes. It is a taste check, not style police: deliberate choices are allowed, and every finding explains *why* it reads as generated.
 
 ## Install
 
@@ -57,6 +59,8 @@ Twenty indicators in four groups:
 
 Each is weighted high (7), medium (5), or low (3); the score is `100 - penalties`. **90+** ships, **70-89** needs polish, **below 70** reads as generated. One indicator rarely matters; a cluster across categories does.
 
+Those 20 are the primary catalog. An [expanded secondary catalog](references/expanded-slop-indicators.md) gathers further tells from independent research — type defaults, gradients, glass, section rhythm, and stock copy. Each confirmed expanded tell adds 2 (total penalties cap at 100), and five or more on one page means structural slop even if the primary score is high. None is conclusive alone; the value is in counting them.
+
 ## Output
 
 ```markdown
@@ -77,7 +81,9 @@ With `--rewrite`, the audit is followed by corrected code and a re-score.
 ```
 .claude-plugin/              plugin.json + marketplace.json (for /plugin marketplace add)
 SKILL.md                     entry point: triggers, scoring, output format
+assets/no-ai-slop-logo.svg   repository mark
 references/slop-indicators.md   20 rules: detection, rationale, replacement
+references/expanded-slop-indicators.md  secondary catalog from independent research
 references/rewrite-playbook.md  positive patterns + worked before/after
 scripts/scan_slop.py            stdlib textual triage
 evals/                          test prompts + sloppy fixture

@@ -54,11 +54,13 @@ Each indicator has a fixed penalty reflecting how strongly it reads as generated
 - **70-89** — a few tells; polish before shipping.
 - **Below 70** — reads as generated; rewrite the structure, not just the colors.
 
+The table above is the primary catalog and its weights are fixed. A secondary catalog from independent research is in `references/expanded-slop-indicators.md`: each **confirmed** expanded tell adds a penalty of 2, and total penalties across both catalogs are capped at 100. A page showing **five or more** confirmed expanded tells should be treated as structural slop even if the primary score is high — rewrite the structure, not just the colors. None of the expanded tells is conclusive alone.
+
 A low score is not a moral judgment. It is a prediction of how a discerning viewer will read the work. Say so plainly.
 
 ## Detection and fixes
 
-Full per-indicator rules — what to look for, why it reads as slop, and the concrete replacement — live in `references/slop-indicators.md`. Read that file whenever you are scoring or rewriting; the one-line names in the scoring table are not enough to apply the rules consistently. In a long session, re-read it instead of relying on recall; it is the authoritative anchor, and it is grep-able.
+Full per-indicator rules — what to look for, why it reads as slop, and the concrete replacement — live in `references/slop-indicators.md`. Read that file whenever you are scoring or rewriting; the one-line names in the scoring table are not enough to apply the rules consistently. In a long session, re-read it instead of relying on recall; it is the authoritative anchor, and it is grep-able. For the independent-research tells, see `references/expanded-slop-indicators.md`; they are secondary, worth 2 each when confirmed, and read as a cluster rather than as standalone verdicts.
 
 For positive direction (layout archetypes, typography pairing, copy patterns that signal intent), read `references/rewrite-playbook.md`.
 

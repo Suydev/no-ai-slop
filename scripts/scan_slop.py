@@ -4,9 +4,12 @@
 Usage:
     python3 scan_slop.py <path> [--json] [--max-evidence N]
 
-Scans source files for the textual signatures of the 20 indicators in the
-no-ai-slop skill. Findings are candidates, not verdicts: a human (or the
-Claude using this skill) must confirm them against rendered context.
+Scans source files for textual signatures of the 20 primary indicators in the
+no-ai-slop skill plus the low-weight (2) signals from the secondary catalog in
+references/expanded-slop-indicators.md. Findings are candidates, not verdicts:
+a human (or the Claude using this skill) must confirm them against rendered
+context. Primary weights are unchanged; each confirmed expanded tell adds 2,
+and total penalties are capped at 100.
 """
 
 from __future__ import annotations
@@ -110,6 +113,36 @@ INDICATORS: list[Indicator] = [
                r"whileInView", r"reveal-on-scroll", r"scroll-reveal"]),
     Indicator("dither", "Dithering", 3,
               [r"\bdither\w*\b", r"feTurbulence", r"noise[-\s]?(?:png|svg|texture)", r"\bgrain\b"]),
+
+    Indicator("x_inter_geist", "Inter/Geist default stack (expanded)", 2,
+              [r"\bfont-family:[^;\n]{0,80}\b(?:Inter|Geist)\b",
+               r"\bfont-\[?(?:Inter|Geist)\b",
+               r"\b(?:Inter|Geist),?\s+sans-serif\b",
+               r"fonts\.googleapis\.com[^\n]{0,80}(?:Inter|Geist)"]),
+    Indicator("x_indigo_violet", "Indigo/violet default accent (expanded)", 2,
+              [r"\bindigo-500\b", r"\bviolet-600\b", r"#8b5cf6\b"]),
+    Indicator("x_bg_black", "Pure black background (expanded)", 2,
+              [r"\bbg-black\b", r"background(?:-color)?:\s*(?:#000\b|black\b)"]),
+    Indicator("x_backdrop_blur", "Glassmorphism blur (expanded)", 2,
+              [r"\bbackdrop-blur\b", r"backdrop-filter:\s*blur"]),
+    Indicator("x_bg_clip_text", "Gradient-clipped heading text (expanded)", 2,
+              [r"\bbg-clip-text\b"]),
+    Indicator("x_tracking_body", "tracking-tighter on body text (expanded)", 2,
+              [r"(?:body|<p\b)[^\n]{0,120}\btracking-tighter\b",
+               r"tracking-tighter[^\n]{0,120}(?:<\/p>|})"],
+              note="Confirm the tight tracking is on reading text, not a display heading."),
+    Indicator("x_py20", "Uniform py-20 rhythm (expanded)", 2,
+              [r"\bpy-20\b"], min_hits=2,
+              note="Flag only when repeated across sections."),
+    Indicator("x_maxw7xl", "One global max-w-7xl container (expanded)", 2,
+              [r"\bmax-w-7xl\b"], min_hits=2,
+              note="Flag only when repeated across sections."),
+    Indicator("x_scale105", "scale-105 emphasis (expanded)", 2,
+              [r"\bscale-105\b"]),
+    Indicator("x_gray500", "Low-contrast gray body text (expanded)", 2,
+              [r"\btext-gray-500\b"]),
+    Indicator("x_from_purple", "Purple/violet hero gradient (expanded)", 2,
+              [r"\bfrom-(?:purple|violet)\b"]),
 ]
 
 
