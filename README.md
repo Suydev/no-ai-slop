@@ -39,6 +39,7 @@ The skill activates when Claude is about to write or review UI. Invoke it direct
 /no-ai-slop this landing page looks generic, what's wrong with it?
 /no-ai-slop make this landing page feel premium — what should I build instead?
 /no-ai-slop should this hero use a 3D scroll scene?
+/no-ai-slop redesign this page using real sites worth studying, not the usual templates
 ```
 
 Without Claude, run the triage scanner directly:
@@ -72,7 +73,9 @@ A clean audit is a floor, not a target. The skill ships a researched positive ca
 - Component recipes for bento grids, proof blocks, comparisons, and real sequences, plus rules for using premade shadcn/animation blocks without importing their defaults
 - A 3D/scroll decision matrix (CSS → Lottie → Three.js reveal → pin-and-scrub → shaders), when to use and when not to, the input/state/render architecture, video-on-scroll recipe, and the reduced-motion/SEO/performance checklist
 
-The [rewrite playbook](references/rewrite-playbook.md) covers typography, copy, color, and motion. Every rewrite must state a **Direction** block naming the hero pattern, proof artifact, component composition, and motion tier — so the page changes because of a choice, not because of a mood board.
+[references/reference-library.md](references/reference-library.md) adds the diverse source pack: a gallery map by question (Awwwards, Godly/Recent, One Page Love, Land-book, Saaspo, Mobbin, Refero, Page Flows, The Component Gallery, A1), exemplar sites with one decision worth stealing from each, concept-first award teardowns, and trending UI repos/registries. The skill requires 3–6 references from at least three families, with the principle taken from each — never copied assets, copy, or layout.
+
+The [rewrite playbook](references/rewrite-playbook.md) covers typography, copy, color, and motion. Every rewrite must state a **Direction** block naming the hero pattern, proof artifact, component composition, motion tier, and references used — so the page changes because of a choice, not because of a mood board.
 
 ## Output
 
@@ -99,6 +102,7 @@ references/slop-indicators.md   20 rules: detection, rationale, replacement
 references/expanded-slop-indicators.md  secondary catalog from independent research
 references/rewrite-playbook.md  positive patterns + worked before/after
 references/impressive-ui-patterns.md  researched hero, component, and 3D/scroll direction
+references/reference-library.md       galleries, exemplar sites, award teardowns, UI repos
 scripts/scan_slop.py            stdlib textual triage
 evals/                          test prompts + sloppy fixture
 durable-instructions/           companion skill: durable instruction authoring
@@ -107,7 +111,7 @@ SKILL_TREE.md                   annotated tree, lint results, overlap check
 
 ## Validation
 
-Developed with an evidence-driven loop: a baseline audit without the skill produced prose alone; with the skill it produced a 23/100 score with 15 located, explainable findings. The scanner was then fixed to catch every tell in the fixture (16, with one judged a false positive by manual review). `SKILL.md` is 120 lines / 1677 words; the positive catalogs are separate references so the entry point stays short. See [SKILL_TREE.md](SKILL_TREE.md) for details.
+Developed with an evidence-driven loop: a baseline audit without the skill produced prose alone; with the skill it produced a 23/100 score with 15 located, explainable findings. The scanner was then fixed to catch every tell in the fixture (16, with one judged a false positive by manual review). `SKILL.md` is 122 lines / 1782 words; the positive catalogs are separate references so the entry point stays short. See [SKILL_TREE.md](SKILL_TREE.md) for details.
 
 ## Limits
 

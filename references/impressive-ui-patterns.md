@@ -4,6 +4,8 @@ Removing tells sets a floor, not a target. A page can score 100/100 and still be
 
 The rule that governs everything here: **pick the pattern that fits the product truth**. A 3D hero on a text-first product is slop with a higher frame budget. A static screenshot on a product whose value is motion is a missed argument. Every pattern below names when it fits and when it breaks.
 
+For where to find real examples of these patterns, see `reference-library.md`.
+
 ## Contents
 
 - Decide in this order

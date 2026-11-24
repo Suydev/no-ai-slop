@@ -10,25 +10,26 @@ no-ai-slop/                         # publishable repo root
 │   ├── plugin.json                 # plugin manifest: name, version, keywords, MIT
 │   └── marketplace.json            # marketplace manifest for /plugin marketplace add
 ├── evals/
-│   ├── evals.json                  # 4 behavioral test prompts
+│   ├── evals.json                  # 5 behavioral test prompts
 │   └── fixtures/
 │       └── sloppy-landing.html     # deliberately sloppy audit target for evals
 ├── references/
 │   ├── slop-indicators.md          # 20 rules: detect / why / fix (has TOC, 258 lines)
 │   ├── expanded-slop-indicators.md # secondary catalog from independent research
 │   ├── rewrite-playbook.md         # positive patterns + worked before/after
-│   └── impressive-ui-patterns.md   # hero, component and 3D/scroll direction (196 lines)
+│   ├── impressive-ui-patterns.md   # hero, component and 3D/scroll direction (198 lines)
+│   └── reference-library.md        # galleries, exemplar sites, teardowns, repos (146 lines)
 ├── scripts/
 │   └── scan_slop.py                # stdlib-only textual triage, --json, exits 0
 ├── .gitignore                      # __pycache__, .env, workspace output
 ├── LICENSE                         # MIT
 ├── README.md                       # install (plugin / skill / project), usage, limits
-└── SKILL.md                        # entry point: triggers, scoring, audit format, Direction block (120 lines, 1677 words)
+└── SKILL.md                        # entry point: triggers, scoring, audit format, Direction block (122 lines, 1782 words)
 ```
 
 ## Lint results (manual — skillforge's scripts are not installed)
 
-- SKILL.md: 120 lines / 1677 words — under the 500-line rule; detail lives in four references.
+- SKILL.md: 122 lines / 1782 words — under the 500-line rule; detail lives in five references.
 - Frontmatter: `name`, `description` (745 chars, under 1024), `argument-hint`, `allowed-tools`, `license`.
 - No `<details>` blocks, no pinned dated model IDs, references over 100 lines have a contents list, `evals/` shipped.
 - Triggers live only in the description; the body has no duplicate "Triggers" section.

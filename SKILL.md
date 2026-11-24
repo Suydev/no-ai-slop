@@ -16,7 +16,7 @@ Source list: Charles Liu, "20 More AI Design Slop Indicators" (https://youtube.c
 
 ## Contract for long sessions
 
-Confirm every scanner hit before counting it. Score only from confirmed findings. Reload `references/slop-indicators.md` rather than recalling it. Before any rewrite, reload `references/impressive-ui-patterns.md` and `references/rewrite-playbook.md` and name the replacement pattern; "looks better" is not a direction. State when no render was available.
+Confirm every scanner hit before counting it. Score only from confirmed findings. Reload `references/slop-indicators.md` rather than recalling it. Before any rewrite, reload `references/impressive-ui-patterns.md` and `references/rewrite-playbook.md` and name the replacement pattern; "looks better" is not a direction. Choose 3-6 references from at least three different families in `references/reference-library.md` and state what you take from each; never copy a brand's assets, copy, or layout. State when no render was available.
 
 ## When to use
 
@@ -36,7 +36,7 @@ Skip the audit for pure backend work, plain terminal output, data files, or non-
    The script is a triage aid, not a verdict. Regex hits are candidates; a cream hex can be the right brand color, and `grid-cols-3` can be justified. Confirm each hit against context, then **walk all 20 indicators manually** — the scanner misses tells expressed through custom class names (`.pill`, `border-radius:999px`) or loose spacing between related declarations. Never treat the script's score as the final score.
 3. **Inspect the rendered design** when you have a screenshot, browser, or running preview. Several tells (blurry glows, fade-on-scroll, over-use of eyebrows/pills, three identical cards) are visual and will not appear in source scanning. If no browser or preview is reachable, say so explicitly and score from source only; note in the report that visual-only tells may have been missed. Do not repeatedly retry a browser connection that was refused.
 4. **Score and report** using the format below. Before counting any candidate, confirm it against source or screenshot: a regex hit is a candidate, not a finding. Cite the exact line or screenshot region for every finding.
-5. **Name the positive direction** before changing code. Reload both positive references, then write: product truth in one sentence, hero pattern matched to the visitor, proof artifact, component composition, cheapest motion tier, and budget checks. A rewrite without these choices is redecoration.
+5. **Name the positive direction** before changing code. Reload both positive references; pick 3-6 diverse references from `references/reference-library.md` and write what you take from each. Then write: product truth in one sentence, hero pattern matched to the visitor, proof artifact, component composition, cheapest motion tier, and budget checks. A rewrite without these choices is redecoration.
 6. **Rewrite only when asked.** Apply the chosen direction, then re-score to show the delta. Run the audit again on the result: impressive additions can reintroduce slop.
 
 ## Scoring
@@ -63,7 +63,7 @@ A low score is not a moral judgment. It is a prediction of how a discerning view
 
 Full per-indicator rules — what to look for, why it reads as slop, and the concrete replacement — live in `references/slop-indicators.md`. Read that file whenever you are scoring or rewriting; the one-line names in the scoring table are not enough to apply the rules consistently. In a long session, re-read it instead of relying on recall; it is the authoritative anchor, and it is grep-able. For the independent-research tells, see `references/expanded-slop-indicators.md`; they are secondary, worth 2 each when confirmed, and read as a cluster rather than as standalone verdicts.
 
-For positive direction — layout archetypes, typography pairing, copy patterns — read `references/rewrite-playbook.md`. For researched page patterns, component recipes, premade block sources, and 3D/scroll decisions, read `references/impressive-ui-patterns.md`.
+For positive direction — layout archetypes, typography pairing, copy patterns — read `references/rewrite-playbook.md`. For researched page patterns, component recipes, premade block sources, and 3D/scroll decisions, read `references/impressive-ui-patterns.md`. For a diverse set of galleries, exemplar sites, award teardowns, and UI repos, read `references/reference-library.md`. Cite which reference informed each decision.
 
 ## Output format
 
@@ -90,7 +90,7 @@ Rules for the table:
 
 When the user asks for a rewrite, follow the audit with the rewritten code or a precise diff, then a one-line re-score: `After rewrite: <N>/100 (+<delta>)`. Do not rewrite unprompted.
 
-Every rewrite starts with a 2-4 line **Direction** block: hero pattern, proof artifact, component composition, motion tier, and one sentence on why they fit this product. Cite `references/impressive-ui-patterns.md` so the choice is auditable.
+Every rewrite starts with a 2-4 line **Direction** block: hero pattern, proof artifact, component composition, motion tier, and the 3-6 references with one principle taken from each. Cite `references/impressive-ui-patterns.md` and `references/reference-library.md` so the choices are auditable.
 
 ## Rewriting principles
 
@@ -101,6 +101,7 @@ Work from structure outward. The highest-leverage changes are almost always stru
 - Replace claims with specifics: a real number with a source beats "made up stats"; a concrete verb beats "real" or "quiet".
 - Use motion only to explain state or cause. Decorative fade-in-on-scroll and pulsing status lights with no live data are noise.
 - Match the hero to product truth and visitor temperature; an Apple product-shot hero on an invisible API is a lie.
+- Draw from at least three different reference families and name the principle borrowed from each; copying one site wholesale gives you its problems along with its layout.
 - Choose blocks by job, restyle them with the product's tokens, delete unused variants and placeholders.
 - Pick the cheapest motion tier that carries the idea. If you use 3D, name what it communicates, build the reduced-motion frame first, keep copy in the DOM.
 - Keep the product's own voice. Removing slop should make the design more specific to *this* product, not more generic in a different direction.
@@ -117,4 +118,5 @@ Work from structure outward. The highest-leverage changes are almost always stru
 - `references/slop-indicators.md` — the 20 indicators with detection rules, rationale, and replacements.
 - `references/rewrite-playbook.md` — positive patterns for layout, type, copy, and motion.
 - `references/impressive-ui-patterns.md` — researched hero patterns, component recipes, premade block sources, and 3D/scroll patterns with fit, cost, and accessibility rules.
+- `references/reference-library.md` — galleries, exemplar sites, award teardowns, UI repos, and a reference-selection workflow.
 - `scripts/scan_slop.py` — stdlib-only textual scan; prints a table, JSON with `--json`, and exits 0 so findings never break a build.
