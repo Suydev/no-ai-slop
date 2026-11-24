@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+no-ai-slop-workspace/
+.DS_Store
+node_modules/
+.env

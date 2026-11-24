@@ -1,0 +1,26 @@
+{
+  "skill_name": "no-ai-slop",
+  "evals": [
+    {
+      "id": 1,
+      "name": "audit-sloppy-landing",
+      "prompt": "Here's a landing page I'm about to ship: ~/no-ai-slop/evals/fixtures/sloppy-landing.html. Review it and tell me honestly whether it looks generic.",
+      "expected_output": "A compact scored slop audit with specific file:line evidence, severity, why each tell reads as AI, and concrete fixes. Should identify cream background, italic headline word, pill, three icon cards, made-up stats, arrows, and two-word sentences.",
+      "files": ["/data/data/com.termux/files/home/no-ai-slop/evals/fixtures/sloppy-landing.html"]
+    },
+    {
+      "id": 2,
+      "name": "proactive-audit-on-generation",
+      "prompt": "Write me a hero section for a local-first note-taking app. Plain HTML and CSS, no frameworks. Keep it short.",
+      "expected_output": "Working hero HTML/CSS that avoids the 20 tells by construction, ideally with a brief note on the deliberate choices. No cream wash, no italic headline word, no pill, no sparkle, no 'quiet'/'real', no fake stats.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "rewrite-generic-dashboard",
+      "prompt": "Our dashboard hero has a cream background, three icon cards in a row, and a '10x faster' stat line. Make it look less AI-generated — rewrite the hero and show me what changed.",
+      "expected_output": "An audit of the described tells plus a rewritten hero with structural changes (asymmetric layout or single feature, sourced/removed stats, revised copy) and a re-score showing the improvement.",
+      "files": []
+    }
+  ]
+}
