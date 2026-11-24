@@ -1,0 +1,25 @@
+{
+  "name": "no-ai-slop",
+  "owner": {
+    "name": "Suydev"
+  },
+  "metadata": {
+    "description": "Scored audit and rewrite guidance for AI design slop, with a stdlib textual scanner"
+  },
+  "plugins": [
+    {
+      "name": "no-ai-slop",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "Audit and rewrite UI work so it does not read as generic AI-generated slop. Scores 20 design tells and gives concrete replacements.",
+      "author": {
+        "name": "Suydev"
+      },
+      "homepage": "https://github.com/Suydev/no-ai-slop",
+      "repository": "https://github.com/Suydev/no-ai-slop",
+      "license": "MIT",
+      "keywords": ["design", "taste", "ui", "ux", "slop", "audit", "frontend", "html", "css", "react", "tailwind", "landing-page"],
+      "category": "design"
+    }
+  ]
+}

@@ -7,7 +7,8 @@ Generated with `skillforge` (triage + lint), `skill-developer` (structure/trigge
 ```
 no-ai-slop/                         # publishable repo root
 ├── .claude-plugin/
-│   └── plugin.json                 # marketplace manifest: name, version, keywords, MIT
+│   ├── plugin.json                 # plugin manifest: name, version, keywords, MIT
+│   └── marketplace.json            # marketplace manifest for /plugin marketplace add
 ├── evals/
 │   ├── evals.json                  # 3 behavioral test prompts
 │   └── fixtures/

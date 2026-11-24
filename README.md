@@ -75,7 +75,7 @@ With `--rewrite`, the audit is followed by corrected code and a re-score.
 ## Repository layout
 
 ```
-.claude-plugin/plugin.json   marketplace manifest
+.claude-plugin/              plugin.json + marketplace.json (for /plugin marketplace add)
 SKILL.md                     entry point: triggers, scoring, output format
 references/slop-indicators.md   20 rules: detection, rationale, replacement
 references/rewrite-playbook.md  positive patterns + worked before/after
