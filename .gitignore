@@ -4,3 +4,5 @@ no-ai-slop-workspace/
 .DS_Store
 node_modules/
 .env
+
+.worktrees/
