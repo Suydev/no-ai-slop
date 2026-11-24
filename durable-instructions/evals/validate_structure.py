@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Mechanical checks for durable-instructions structure."""
+import json
 import re
 import sys
 from pathlib import Path
@@ -44,6 +45,19 @@ if words >= 1500:
 for name in ("research-evidence.md", "authoring-patterns.md", "evaluation.md"):
     if not (ROOT / "references" / name).exists():
         errors.append(f"missing reference: {name}")
+
+try:
+    evals_data = json.loads((ROOT / "evals" / "evals.json").read_text())
+except (OSError, ValueError) as exc:
+    errors.append(f"evals.json unreadable or malformed: {exc}")
+else:
+    try:
+        eval_count = len(evals_data["evals"])
+    except (KeyError, TypeError) as exc:
+        errors.append(f"evals.json missing evals list: {exc}")
+    else:
+        if eval_count != 8:
+            errors.append(f"evals.json expected 8 evals, found {eval_count}")
 
 if errors:
     print("FAIL")

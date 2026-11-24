@@ -45,4 +45,4 @@ evals/validate_structure.py     mechanical structure check
 
 ## License
 
-MIT — see [LICENSE](../LICENSE).
+MIT — see [LICENSE](LICENSE).

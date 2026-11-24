@@ -4,6 +4,8 @@ This is a **secondary catalog** assembled from independent design research, not 
 
 Note on coverage: the task brief labels this list "35 tells" but the exact ordered list it supplies contains 43 semicolon-separated items (typography 8, color and surface 12, layout 12, components and copy 11). Every supplied item is documented below, in the supplied order, and no unlisted tell has been added.
 
+Severity is descriptive only: `medium (structural)` labels layout-level tells, but every confirmed expanded tell carries a flat penalty of 2.
+
 ## Sources
 
 Primary sources used for the prose of these entries:

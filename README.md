@@ -46,7 +46,7 @@ python3 scripts/scan_slop.py src/          # table
 python3 scripts/scan_slop.py src/ --json   # machine-readable
 ```
 
-The scanner is stdlib-only and exits 0, so findings never break CI. It is a triage aid: Claude (or you) confirms each hit against the rendered design before scoring. It prints its caveats and all 20 indicators must be walked manually.
+The scanner is stdlib-only and exits 0, so findings never break CI. It is a triage aid: Claude (or you) confirms each hit against the rendered design before scoring. It prints its caveats and all 20 indicators must be walked manually. Its score now also includes expanded-catalog penalties, so that stdout caveat refers to the primary catalog only.
 
 ## What it catches
 
@@ -87,12 +87,13 @@ references/expanded-slop-indicators.md  secondary catalog from independent resea
 references/rewrite-playbook.md  positive patterns + worked before/after
 scripts/scan_slop.py            stdlib textual triage
 evals/                          test prompts + sloppy fixture
+durable-instructions/           companion skill: durable instruction authoring
 SKILL_TREE.md                   annotated tree, lint results, overlap check
 ```
 
 ## Validation
 
-Developed with an evidence-driven loop: a baseline audit without the skill produced prose alone; with the skill it produced a 23/100 score with 15 located, explainable findings. The scanner was then fixed to catch every tell in the fixture (16, with one judged a false positive by manual review). `SKILL.md` is 107 lines / 1322 words; see [SKILL_TREE.md](SKILL_TREE.md) for details.
+Developed with an evidence-driven loop: a baseline audit without the skill produced prose alone; with the skill it produced a 23/100 score with 15 located, explainable findings. The scanner was then fixed to catch every tell in the fixture (16, with one judged a false positive by manual review). `SKILL.md` is 113 lines / 1492 words; see [SKILL_TREE.md](SKILL_TREE.md) for details.
 
 ## Limits
 

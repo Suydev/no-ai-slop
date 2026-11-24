@@ -88,7 +88,7 @@ INDICATORS: list[Indicator] = [
               note="Confirm the pulse is bound to live status; a static dot is only decorative."),
     Indicator("glows", "Blurry glows behind the hero", 7,
               [r"blur-(?:2xl|3xl)", r"filter:\s*blur\s*\(", r"radial-gradient",
-               r"\bglow\b", r"backdrop-blur"]),
+               r"\bglow\b"]),
     Indicator("instrument_serif", "Instrument Serif", 5,
               [r"instrument[ _-]?serif"]),
     Indicator("left_borders", "Colored left borders", 5,
